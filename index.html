@@ -38,6 +38,7 @@
         .nav-cta{background:var(--grad);color:var(--white)!important;padding:10px 20px;border-radius:10px;font-weight:600;box-shadow:0 4px 15px rgba(203,108,230,0.3);transition:all 0.3s}
         .nav-cta:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(203,108,230,0.4)}
         .mobile-menu-btn{display:none;background:none;border:none;font-size:24px;cursor:pointer;color:var(--navy)}
+        .mobile-lang{display:none;margin-right:12px}
 
         /* Hero - Light Version */
         .hero{min-height:100vh;display:flex;align-items:center;padding:140px 0 80px;position:relative;background:linear-gradient(180deg,var(--cloud) 0%,var(--white) 50%,rgba(203,108,230,0.03) 100%)}
@@ -212,6 +213,7 @@
         @media(max-width:768px){
             nav{display:none}
             .mobile-menu-btn{display:block}
+            .mobile-lang{display:flex}
             .hero{padding:120px 0 60px}
             .hero-stats{gap:20px;flex-wrap:wrap}
             .hero-ctas{flex-direction:column}
@@ -260,6 +262,10 @@
                 </div>
                 <a href="#contact" class="nav-cta"><span class="lang-en">Request Demo</span><span class="lang-es">Solicitar Demo</span></a>
             </nav>
+            <div class="lang-switch mobile-lang">
+                <button id="btnENHeader" class="active" onclick="setLanguage('en')">EN</button>
+                <button id="btnESHeader" onclick="setLanguage('es')">ES</button>
+            </div>
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
         </div>
     </header>
@@ -612,6 +618,10 @@
             if(document.getElementById('btnENMobile')){
                 document.getElementById('btnENMobile').classList.toggle('active', !isSpanish);
                 document.getElementById('btnESMobile').classList.toggle('active', isSpanish);
+            }
+            if(document.getElementById('btnENHeader')){
+                document.getElementById('btnENHeader').classList.toggle('active', !isSpanish);
+                document.getElementById('btnESHeader').classList.toggle('active', isSpanish);
             }
         }
 
