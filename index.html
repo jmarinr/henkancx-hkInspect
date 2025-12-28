@@ -24,23 +24,25 @@
         .lang-switch button:hover:not(.active){color:var(--purple)}
 
         /* Header */
-        header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(13,27,42,0.06);transition:all 0.3s}
+        header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(13,27,42,0.06);transition:all 0.3s;padding:14px 0}
         header.scrolled{box-shadow:0 4px 20px rgba(13,27,42,0.08)}
-        .header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1200px;margin:0 auto}
+        .header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0 24px}
         .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
         .logo-icon{width:45px;height:45px;object-fit:contain}
         .logo-text{display:flex;flex-direction:column;line-height:1.2}
         .logo-brand{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--navy)}
         .logo-tagline{font-family:'Inter',sans-serif;font-size:11px;font-weight:500;color:var(--slate)}
-        nav{display:flex;align-items:center;gap:28px}
-        nav a{color:var(--slate);font-weight:500;font-size:14px;transition:color 0.3s}
-        nav a:hover{color:var(--purple)}
-        .nav-cta{background:var(--grad);color:var(--white)!important;padding:10px 20px;border-radius:10px;font-weight:600;box-shadow:0 4px 15px rgba(203,108,230,0.3);transition:all 0.3s}
-        .nav-cta:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(203,108,230,0.4)}
-        .mobile-controls{display:none;align-items:center;gap:10px}
-        .mobile-menu-btn{display:flex;align-items:center;justify-content:center;width:42px;height:42px;background:var(--cloud);border:1px solid rgba(13,27,42,0.1);border-radius:10px;cursor:pointer;color:var(--navy);transition:all 0.3s;padding:0}
-        .mobile-menu-btn svg{width:22px;height:22px}
-        .mobile-menu-btn:hover{background:var(--purple);color:var(--white);border-color:var(--purple)}
+        .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+        .nav-links a{color:var(--slate);font-weight:500;font-size:14px;transition:color 0.3s;text-decoration:none}
+        .nav-links a:hover{color:var(--purple)}
+        .nav-cta{display:flex;gap:12px;align-items:center}
+        .lang-switch{display:flex;gap:2px;background:var(--cloud);border-radius:8px;padding:3px;margin-right:8px}
+        .lang-switch button{padding:6px 12px;border:none;background:transparent;color:var(--slate);font-family:'Inter',sans-serif;font-weight:600;font-size:12px;cursor:pointer;border-radius:6px;transition:all 0.3s}
+        .lang-switch button.active{background:var(--white);color:var(--purple);box-shadow:var(--shadow-sm)}
+        .lang-switch button:hover:not(.active){color:var(--purple)}
+        .btn-nav{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 22px;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;border-radius:10px;border:none;cursor:pointer;text-decoration:none;transition:all 0.3s ease;background:var(--grad);color:var(--white);box-shadow:0 4px 15px rgba(203,108,230,0.3)}
+        .btn-nav:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(203,108,230,0.4)}
+        .mobile-menu-btn{display:none;background:none;border:none;cursor:pointer;padding:8px}
 
         /* Hero - Light Version */
         .hero{min-height:100vh;display:flex;align-items:center;padding:140px 0 80px;position:relative;background:linear-gradient(180deg,var(--cloud) 0%,var(--white) 50%,rgba(203,108,230,0.03) 100%)}
@@ -212,11 +214,14 @@
             .pricing-card.featured:hover{transform:translateY(-5px)}
             .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
         }
-        @media(max-width:900px){
-            nav{display:none!important}
-            .mobile-controls{display:flex!important}
-        }
         @media(max-width:768px){
+            .nav-links{display:none!important}
+            .nav-cta .btn-nav{display:none}
+            .mobile-menu-btn{display:block}
+            header{padding:10px 0}
+            .logo-icon{width:40px;height:40px}
+            .logo-brand{font-size:16px}
+            .logo-tagline{font-size:10px}
             .hero{padding:120px 0 60px}
             .hero-stats{gap:20px;flex-wrap:wrap}
             .hero-ctas{flex-direction:column}
@@ -234,10 +239,9 @@
         /* Mobile Nav */
         .mobile-nav{display:none;position:fixed;top:73px;left:0;right:0;background:var(--white);border-bottom:1px solid rgba(13,27,42,0.08);padding:16px 24px 24px;z-index:999;box-shadow:var(--shadow-xl);max-height:calc(100vh - 73px);overflow-y:auto}
         .mobile-nav.active{display:block}
-        .mobile-nav a{display:block;padding:16px 0;color:var(--navy);font-weight:500;font-size:16px;border-bottom:1px solid rgba(13,27,42,0.06);transition:color 0.3s}
+        .mobile-nav a{display:block;padding:16px 0;color:var(--navy);font-weight:500;font-size:16px;border-bottom:1px solid rgba(13,27,42,0.06);transition:color 0.3s;text-decoration:none}
         .mobile-nav a:hover{color:var(--purple)}
-        .mobile-nav .lang-switch{margin:16px 0;justify-content:center}
-        .mobile-nav .nav-cta{display:block;text-align:center;margin-top:8px;padding:16px 20px;border-radius:12px;border-bottom:none;color:var(--white)!important}
+        .mobile-nav .mobile-cta{display:block;text-align:center;margin-top:16px;padding:16px 20px;border-radius:12px;border-bottom:none;color:var(--white);background:var(--grad);font-weight:600}
 
         /* Animations */
         .reveal{opacity:0;transform:translateY(30px);transition:all 0.7s ease}
@@ -254,30 +258,26 @@
                     <span class="logo-tagline">by HenkanCX</span>
                 </div>
             </a>
-            <nav>
-                <a href="#features"><span class="lang-en">Features</span><span class="lang-es">Características</span></a>
-                <a href="#how-it-works"><span class="lang-en">How It Works</span><span class="lang-es">Cómo Funciona</span></a>
-                <a href="#demo">Demo</a>
-                <a href="#pricing"><span class="lang-en">Pricing</span><span class="lang-es">Planes</span></a>
+            <ul class="nav-links">
+                <li><a href="#features"><span class="lang-en">Features</span><span class="lang-es">Características</span></a></li>
+                <li><a href="#how-it-works"><span class="lang-en">How It Works</span><span class="lang-es">Cómo Funciona</span></a></li>
+                <li><a href="#demo">Demo</a></li>
+                <li><a href="#pricing"><span class="lang-en">Pricing</span><span class="lang-es">Planes</span></a></li>
+            </ul>
+            <div class="nav-cta">
                 <div class="lang-switch">
                     <button id="btnEN" class="active" onclick="setLanguage('en')">EN</button>
                     <button id="btnES" onclick="setLanguage('es')">ES</button>
                 </div>
-                <a href="#contact" class="nav-cta"><span class="lang-en">Request Demo</span><span class="lang-es">Solicitar Demo</span></a>
-            </nav>
-            <div class="mobile-controls">
-                <div class="lang-switch">
-                    <button id="btnENHeader" class="active" onclick="setLanguage('en')">EN</button>
-                    <button id="btnESHeader" onclick="setLanguage('es')">ES</button>
-                </div>
-                <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <line x1="3" y1="12" x2="21" y2="12"></line>
-                        <line x1="3" y1="18" x2="21" y2="18"></line>
-                    </svg>
-                </button>
+                <a href="#contact" class="btn-nav"><span class="lang-en">Request Demo</span><span class="lang-es">Solicitar Demo</span></a>
             </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
         </div>
     </header>
 
@@ -286,7 +286,7 @@
         <a href="#how-it-works" onclick="toggleMobileMenu()"><span class="lang-en">How It Works</span><span class="lang-es">Cómo Funciona</span></a>
         <a href="#demo" onclick="toggleMobileMenu()">Demo</a>
         <a href="#pricing" onclick="toggleMobileMenu()"><span class="lang-en">Pricing</span><span class="lang-es">Planes</span></a>
-        <a href="#contact" class="nav-cta" onclick="toggleMobileMenu()"><span class="lang-en">Request Demo</span><span class="lang-es">Solicitar Demo</span></a>
+        <a href="#contact" class="mobile-cta" onclick="toggleMobileMenu()"><span class="lang-en">Request Demo</span><span class="lang-es">Solicitar Demo</span></a>
     </div>
 
     <section class="hero">
@@ -622,10 +622,6 @@
             // Update button states
             document.getElementById('btnEN').classList.toggle('active', !isSpanish);
             document.getElementById('btnES').classList.toggle('active', isSpanish);
-            if(document.getElementById('btnENHeader')){
-                document.getElementById('btnENHeader').classList.toggle('active', !isSpanish);
-                document.getElementById('btnESHeader').classList.toggle('active', isSpanish);
-            }
         }
 
         document.addEventListener('DOMContentLoaded', () => {
