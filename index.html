@@ -42,7 +42,8 @@
         .lang-switch button:hover:not(.active){color:var(--purple)}
         .btn-nav{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 22px;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;border-radius:10px;border:none;cursor:pointer;text-decoration:none;transition:all 0.3s ease;background:var(--grad);color:var(--white);box-shadow:0 4px 15px rgba(203,108,230,0.3)}
         .btn-nav:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(203,108,230,0.4)}
-        .mobile-menu-btn{display:none;background:none;border:none;cursor:pointer;padding:8px}
+        .mobile-menu-btn{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--navy);min-width:40px;min-height:40px}
+        .mobile-menu-btn svg{display:block;width:24px;height:24px}
 
         /* Hero - Light Version */
         .hero{min-height:100vh;display:flex;align-items:center;padding:140px 0 80px;position:relative;background:linear-gradient(180deg,var(--cloud) 0%,var(--white) 50%,rgba(203,108,230,0.03) 100%)}
@@ -215,9 +216,11 @@
             .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
         }
         @media(max-width:768px){
-            .nav-links{display:none!important}
+            .nav-links{display:none}
             .nav-cta .btn-nav{display:none}
             .mobile-menu-btn{display:block}
+            .header-inner{gap:12px}
+            .lang-switch{margin-right:0}
             header{padding:10px 0}
             .logo-icon{width:40px;height:40px}
             .logo-brand{font-size:16px}
